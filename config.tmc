@@ -1,0 +1,69 @@
+include "target.tmh"
+int main()
+{
+
+    // Boilerplate
+	if(Init(&EventHandle)) return 1;
+	SetKBRate(32, 50);
+	SetKBLayout(KB_ENG);
+	SetShiftButton(0, 0, 0, 0, 0, 0);
+	Configure(&HCougar, MODE_EXCLUDED);
+    Configure(&JoystickF18, MODE_EXCLUDED);
+    Configure(&A320Pilot, MODE_EXCLUDED);
+    Configure(&A320Copilot, MODE_EXCLUDED);
+    Configure(&TCAQuadrant12, MODE_EXCLUDED);
+    Configure(&TCAQuadrant34, MODE_EXCLUDED);
+    Configure(&T16000, MODE_EXCLUDED);
+    Configure(&T16000L, MODE_EXCLUDED);
+    Configure(&LMFD, MODE_EXCLUDED);
+    Configure(&RMFD, MODE_EXCLUDED);
+    Configure(&TFRPRudder, MODE_EXCLUDED);
+    Configure(&TWCSThrottle, MODE_EXCLUDED);
+    Configure(&TFRPHARudder, MODE_EXCLUDED);
+
+    // Axes
+    MapAxis(&Joystick, JOYX, DX_X_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Joystick, JOYX, 0, 0, 0, 0, 0);
+    MapAxis(&Joystick, JOYY, DX_Y_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Joystick, JOYY, 0, 0, 0, 0, 0);
+    MapAxis(&Throttle, SCX, 0, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Throttle, SCX, 0, 0, 0, 0, 0);
+    MapAxis(&Throttle, SCY, 0, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Throttle, SCY, 0, 0, 0, 0, 0);
+    MapAxis(&Throttle, THR_RIGHT, DX_Z_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Throttle, THR_RIGHT, 0, 0, 0, 0, 0);
+    MapAxis(&Throttle, THR_LEFT, DX_ZROT_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Throttle, THR_LEFT, 0, 0, 0, 0, 0);
+    MapAxis(&Throttle, THR_FC, DX_SLIDER_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+    SetSCurve(&Throttle, THR_FC, 0, 0, 0, 0, 0);
+
+    // Joystick Mapping
+    MapKey(&Joystick, TG1, DX1);
+    MapKey(&Joystick, TG2, DX2);
+    MapKey(&Joystick, S1, DX3);
+    MapKey(&Joystick, S2, DX4);
+    MapKey(&Joystick, S3, DX5);
+    MapKey(&Joystick, S4, DX6);
+    MapKey(&Joystick, H1U, DXHATUP);
+    MapKey(&Joystick, H1R, DXHATRIGHT);
+    MapKey(&Joystick, H1D, DXHATDOWN);
+    MapKey(&Joystick, H1L, DXHATLEFT);
+    MapKey(&Joystick, H2U, DX7);
+    MapKey(&Joystick, H2R, DX8);
+    MapKey(&Joystick, H2D, DX9);
+    MapKey(&Joystick, H2L, DX10);
+    MapKey(&Joystick, H3U, DX11);
+    MapKey(&Joystick, H3R, DX12);
+    MapKey(&Joystick, H3D, DX13);
+    MapKey(&Joystick, H3L, DX14);
+    MapKey(&Joystick, H4U, DX15);
+    MapKey(&Joystick, H4R, DX16);
+    MapKey(&Joystick, H4D, DX17);
+    MapKey(&Joystick, H4L, DX18);
+    MapKey(&Joystick, H4P, DX19);
+
+}
+int EventHandle(int type, alias o, int x)
+{
+	DefaultMapping(&o, x);
+}

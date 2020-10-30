@@ -1,2 +1,3 @@
-# Target-Config-Arma
-TARGET configuration script for using Thrustmaster Warthog Stick &amp; Throttle in Arma 3
+# Thrustmaster TARGET Configuration for Arma 3
+
+This project contains scripts to configure the Thrustmaster Warthog Stick & Throttle for use with Arma 3.
