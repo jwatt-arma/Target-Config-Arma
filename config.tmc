@@ -6,7 +6,7 @@ int main()
 	if(Init(&EventHandle)) return 1;
 	SetKBRate(32, 50);
 	SetKBLayout(KB_ENG);
-	SetShiftButton(0, 0, 0, 0, 0, 0);
+    SetShiftButton(0, 0, &Throttle, CHF, CHB, 0);
 	Configure(&HCougar, MODE_EXCLUDED);
     Configure(&JoystickF18, MODE_EXCLUDED);
     Configure(&A320Pilot, MODE_EXCLUDED);
@@ -61,6 +61,21 @@ int main()
     MapKey(&Joystick, H4D, DX17);
     MapKey(&Joystick, H4L, DX18);
     MapKey(&Joystick, H4P, DX19);
+
+    // Throttle Mapping
+    MapKey(&Throttle, LTB, DX20);
+    MapKey(&Throttle, LDGH, DX21);
+    MapKey(&Throttle, APPAT, DX22);
+    MapKey(&Throttle, SC, DX23);
+    MapKey(&Throttle, FLAPU, CHAIN(DX24, D(), DX24));
+    MapKey(&Throttle, FLAPM, CHAIN(DX24, D(), DX24, D(), DX25));
+    MapKey(&Throttle, FLAPD, CHAIN(DX25, D(), DX25, D(), DX24));
+    MapKey(&Throttle, EACON, DX27);
+    MapKey(&Throttle, EACOFF, DX26);
+
+
+    MapKey(&Throttle, SPDB, DX32);
+
 
 }
 int EventHandle(int type, alias o, int x)
