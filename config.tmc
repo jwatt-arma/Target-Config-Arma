@@ -54,7 +54,7 @@ int main()
     MapKey(&Joystick, H2D, DX9);
     MapKey(&Joystick, H2L, DX10);
     MapKey(&Joystick, H3U, DX11);
-    MapKey(&Joystick, H3R, DX12);
+    MapKey(&Joystick, H3R, USB[0x6B]);
     MapKey(&Joystick, H3D, DX13);
     MapKey(&Joystick, H3L, DX14);
     MapKey(&Joystick, H4U, DX15);
