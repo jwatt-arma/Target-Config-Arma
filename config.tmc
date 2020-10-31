@@ -4,7 +4,7 @@ int main()
 
     // Boilerplate
 	if(Init(&EventHandle)) return 1;
-	SetKBRate(32, 50);
+	SetKBRate(32, 60);
 	SetKBLayout(KB_ENG);
     SetShiftButton(0, 0, &Throttle, CHF, CHB, 0);
 	Configure(&HCougar, MODE_EXCLUDED);
@@ -43,7 +43,8 @@ int main()
     MapKey(&Joystick, S1, DX3);
     MapKey(&Joystick, S2, DX4);
     MapKey(&Joystick, S3, DX5);
-    MapKey(&Joystick, S4, DX6);
+    //MapKey(&Joystick, S4, DX6);
+    MapKeyUMD(&Joystick, S4, USB[0x68], USB[0x69], USB[0x6A]); 
     MapKey(&Joystick, H1U, DXHATUP);
     MapKey(&Joystick, H1R, DXHATRIGHT);
     MapKey(&Joystick, H1D, DXHATDOWN);
@@ -67,13 +68,18 @@ int main()
     MapKey(&Throttle, LDGH, DX21);
     MapKey(&Throttle, APPAT, DX22);
     MapKey(&Throttle, SC, DX23);
-    MapKey(&Throttle, FLAPU, CHAIN(DX24, D(), DX24));
-    MapKey(&Throttle, FLAPM, CHAIN(DX24, D(), DX24, D(), DX25));
-    MapKey(&Throttle, FLAPD, CHAIN(DX25, D(), DX25, D(), DX24));
-    MapKey(&Throttle, EACON, DX27);
-    MapKey(&Throttle, EACOFF, DX26);
+    MapKey(&Throttle, FLAPU, CHAIN(D(100), PULSE+DX24, D(), PULSE+DX24));
+    MapKey(&Throttle, FLAPM, CHAIN(PULSE+DX24, D(100), PULSE+DX24, D(1000), PULSE+DX25));
+    MapKey(&Throttle, FLAPD, CHAIN(D(100), PULSE+DX25, D(), PULSE+DX25));
+    MapKey(&Throttle, EACON, PULSE+DX27);
+    MapKey(&Throttle, EACOFF, PULSE+DX26);
 
 
+    MapKey(&Throttle, MSP, DX30);
+    MapKey(&Throttle, MSR, DX31);
+    MapKey(&Throttle, MSL, DX31);
+    MapKey(&Throttle, MSU, DX31);
+    MapKey(&Throttle, MSD, DX31);
     MapKey(&Throttle, SPDB, DX32);
 
 
