@@ -43,18 +43,18 @@ int main()
     MapKey(&Joystick, S1, DX3);
     MapKey(&Joystick, S2, DX4);
     MapKey(&Joystick, S3, DX5);
-    //MapKey(&Joystick, S4, DX6);
+    MapKey(&Joystick, S4, USB[0x6C]);
     MapKeyUMD(&Joystick, S4, USB[0x68], USB[0x69], USB[0x6A]); 
-    MapKey(&Joystick, H1U, DXHATUP);
-    MapKey(&Joystick, H1R, DXHATRIGHT);
-    MapKey(&Joystick, H1D, DXHATDOWN);
-    MapKey(&Joystick, H1L, DXHATLEFT);
+    MapKey(&Joystick, H1U, DX6);
+    MapKey(&Joystick, H1R, 0);
+    MapKey(&Joystick, H1D, DX12);
+    MapKey(&Joystick, H1L, 0);
     MapKey(&Joystick, H2U, DX7);
     MapKey(&Joystick, H2R, DX8);
     MapKey(&Joystick, H2D, DX9);
     MapKey(&Joystick, H2L, DX10);
     MapKey(&Joystick, H3U, DX11);
-    MapKey(&Joystick, H3R, USB[0x6B]);
+    MapKeyUMD(&Joystick, H3R, F3, USB[0x6B], F6);
     MapKey(&Joystick, H3D, DX13);
     MapKey(&Joystick, H3L, DX14);
     MapKey(&Joystick, H4U, DX15);
@@ -63,25 +63,68 @@ int main()
     MapKey(&Joystick, H4L, DX18);
     MapKey(&Joystick, H4P, DX19);
 
-    // Throttle Mapping
-    MapKey(&Throttle, LTB, DX20);
-    MapKey(&Throttle, LDGH, DX21);
-    MapKey(&Throttle, APPAT, DX22);
-    MapKey(&Throttle, SC, DX23);
+    // 5-way thumb switch
+    MapKey(&Throttle, MSP, F1);
+    MapKey(&Throttle, MSR, F2);
+    MapKey(&Throttle, MSL, F2);
+    MapKey(&Throttle, MSU, F2);
+    MapKey(&Throttle, MSD, F2);
+
+    // Flaps
     MapKey(&Throttle, FLAPU, CHAIN(D(100), PULSE+DX24, D(), PULSE+DX24));
     MapKey(&Throttle, FLAPM, CHAIN(PULSE+DX24, D(100), PULSE+DX24, D(1000), PULSE+DX25));
     MapKey(&Throttle, FLAPD, CHAIN(D(100), PULSE+DX25, D(), PULSE+DX25));
+
+    // Speedbrake
+    MapKey(&Throttle, SPDB, DX32);
+
+    // Left Throttle Button
+    MapKey(&Throttle, LTB, DX20);
+
+    // Silence Warning
+    MapKey(&Throttle, LDGH, DX21);
+
+    // Slew
+    MapKey(&Throttle, SC, DX23);
+
+    // EAC
     MapKey(&Throttle, EACON, PULSE+DX27);
     MapKey(&Throttle, EACOFF, PULSE+DX26);
 
+    // Radar
+    MapKey(&Throttle, RDRNRM, PULSE+F7);
+    MapKey(&Throttle, RDRDIS, PULSE+F7);
 
-    MapKey(&Throttle, MSP, DX30);
-    MapKey(&Throttle, MSR, DX31);
-    MapKey(&Throttle, MSL, DX31);
-    MapKey(&Throttle, MSU, DX31);
-    MapKey(&Throttle, MSD, DX31);
-    MapKey(&Throttle, SPDB, DX32);
+    // Autopilot
+    MapKey(&Throttle, APDIS, 0);
+    MapKey(&Throttle, APENG, 0);
 
+    // Autopilot mode
+    MapKey(&Throttle, APPAT, 0);
+    MapKey(&Throttle, APAH, 0);
+    MapKey(&Throttle, APALT, 0);
+
+    // APU Start
+    MapKey(&Throttle, APUON, 0);
+    MapKey(&Throttle, APUOFF, 0);
+
+    // Left Eng Oper
+    MapKey(&Throttle, EOLIGN, 0);
+    MapKey(&Throttle, EOLNORM, 0);
+    MapKey(&Throttle, EOLMOTOR, 0);
+
+    // Right Eng Oper
+    MapKey(&Throttle, EORIGN, 0);
+    MapKey(&Throttle, EORNORM, 0);
+    MapKey(&Throttle, EORMOTOR, 0);
+
+    // Left Engine Fuel
+    MapKey(&Throttle, EFLNORM, 0);
+    MapKey(&Throttle, EFLOVER, 0);
+
+    // Right Engine Fuel
+    MapKey(&Throttle, EFRNORM, 0);
+    MapKey(&Throttle, EFROVER, 0);
 
 }
 int EventHandle(int type, alias o, int x)
