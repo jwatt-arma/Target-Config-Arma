@@ -42,7 +42,7 @@ int main()
     MapKey(&Joystick, TG2, DX2);
     MapKey(&Joystick, S1, DX3);
     MapKey(&Joystick, S2, DX4);
-    MapKey(&Joystick, S3, DX5);
+    MapKey(&Joystick, S3, USB[0x6D]);
     MapKey(&Joystick, S4, USB[0x6C]);
     MapKeyUMD(&Joystick, S4, USB[0x68], USB[0x69], USB[0x6A]); 
     MapKey(&Joystick, H1U, DX6);
