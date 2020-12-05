@@ -79,7 +79,8 @@ int main()
     MapKey(&Throttle, SPDB, DX32);
 
     // Left Throttle Button
-    MapKey(&Throttle, LTB, DX20);
+    //MapKey(&Throttle, LTB, DX20);
+    MapKeyUMD(&Throttle, LTB, PULSE+F11,DX20, PULSE+F10);
 
     // Silence Warning
     MapKey(&Throttle, LDGH, DX21);
@@ -123,8 +124,8 @@ int main()
     MapKey(&Throttle, EFLOVER, 0);
 
     // Right Engine Fuel
-    MapKey(&Throttle, EFRNORM, 0);
-    MapKey(&Throttle, EFROVER, 0);
+    MapKey(&Throttle, EFRNORM, PULSE+L_ALT+F9);
+    MapKey(&Throttle, EFROVER, PULSE+L_ALT+F9);
 
 }
 int EventHandle(int type, alias o, int x)
